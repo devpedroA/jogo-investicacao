@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jogo de Investigação - O Segredo dos Monteiro</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+  <!-- Inventário -->
+  <div id="inventario">
+    <h3>🗂️ Pistas <span id="badge-pistas">0</span></h3>
+    <ul id="lista-pistas">
+      <li>Nenhuma pista encontrada ainda.</li>
+    </ul>
+    <div class="itens">
+      <h3>🔍 Itens Coletados <span id="badge-itens">0</span></h3>
+      <ul id="lista-itens"></ul>
+    </div>
+  </div>
+  <div class="relatorio">
+    <h3>📋 Relatório da Cena</h3>
+    <p>Vítima: <strong>Eduardo Monteiro (52 anos)</strong></p>
+    <p>Causa da Morte: <strong>Envenenamento por cianeto</strong></p>
+    <p>Hora Estimada: <strong>Entre 21h e 23h</strong></p>
+    <p>Detalhes:
+    <strong>Vítima encontrada na biblioteca, taça de vinho quebrada ao lado,
+    odor de amêndoas amargas</strong></p>
+  </div>
+
+  <!-- Página inicial -->
+  <div class="box active" id="pagina1">
+    <a href="/" onclick="window.location.replace('/')">↩️ Voltar</a>
+    <h1>🕵️ O Segredo dos Monteiro</h1>
+    <p>A mansão da família Monteiro, construída em 1927, sempre foi cercada de mistérios. Na noite passada,
+      Eduardo Monteiro foi encontrado morto na biblioteca com sinais de envenenamento. O que parecia um
+      assassinato comum esconde uma teia de segredos familiares que remontam à fundação da mansão.</p><br>
+    <div class="menu">
+      <span>Você pode:</span>
+      <button onclick="navegar('pagina2')">🗺️ Explorar a Mansão</button>
+      <button onclick="navegar('pagina4')">👥 Interrogar os Suspeitos</button>
+      <button onclick="navegar('pagina18')">⚖️ Fazer uma Acusação</button>
+    </div>
+  </div>
+
+  <!-- Mapa -->
+  <div class="box" id="pagina2">
+    <h2>🗺️ Mansão Monteiro</h2>
+    <p>Escolha um local para investigar:</p>
+    <div class="menu">
+      <button onclick="visitarLocal('pagina3', 'Biblioteca')">📖 Biblioteca <span id="check-Biblioteca"></span></button>
+      <button onclick="visitarLocal('pagina5', 'Escritório')">🏢 Escritório <span id="check-Escritório"></span></button>
+      <button onclick="visitarLocal('pagina6', 'Adega')">🍷 Adega <span id="check-Adega"></span></button>
+      <button onclick="visitarLocal('pagina7', 'Cozinha')">🍽️ Cozinha <span id="check-Cozinha"></span></button>
+      <button onclick="visitarLocal('pagina8', 'Jardim')">🌳 Jardim <span id="check-Jardim"></span></button>
+      <button onclick="visitarLocal('pagina9', 'Quarto')">🛏️ Quarto <span id="check-Quarto"></span></button>
+      <button onclick="visitarLocal('pagina10', 'Garagem')">🚗 Garagem <span id="check-Garagem"></span></button>
+      <button onclick="visitarLocal('pagina11', 'Porão')">🚪 Porão <span id="check-Porão"></span></button>
+      <button onclick="visitarLocal('pagina20', 'Capela')">⛪ Capela Familiar <span id="check-Capela"></span></button>
+      <button onclick="navegar('pagina1')">↩️ Voltar</button>
+    </div>
+  </div>
+
+  <!-- Locais detalhados - Aprofundados -->
+  <div class="box" id="pagina3">
+    <h2>📖 Biblioteca - Cena do Crime</h2>
+    <p>A cena revela detalhes perturbadores:
+    <ul>
+      <li>Uma carta rasgada com frases incompletas: "não confie na...", "amanhã à meia-noite no..."</li>
+      <li>O livro faltante é "Toxicologia Moderna" (edições raras, 1945)</li>
+      <li>Marcas de dedos enluvados no braço da poltrona</li>
+      <li>Um leve odor de amêndoas amargas no ar</li>
+    </ul>
+    Na lareira, cinzas de documentos recentemente queimados.
+    </p>
+    <button onclick="coletarItem('Fragmento de carta', 'pagina3')">Coletar Fragmento</button>
+    <a href="#" onclick="navegar('pagina2')">↩️ Voltar</a>
+  </div>
+
+  <div class="box" id="pagina5">
+    <h2>🏢 Escritório de Eduardo</h2>
+    <p>O caos organizado conta uma história:
+    <ul>
+      <li>Cofre arrombado com técnica profissional</li>
+      <li>Documentos sobre uma fundação secreta da família</li>
+      <li>Relatório marcado como "Projeto Fênix - Fase Final"</li>
+      <li>Uma foto antiga rasgada mostrando Eduardo jovem com um homem idêntico ao sobrinho</li>
+    </ul>
+    O calendário tem o dia do assassinato marcado como "Dia do Acerto".
+    </p>
+    <button onclick="coletarItem('Foto rasgada', 'pagina5')">Coletar Foto</button>
+    <a href="#" onclick="navegar('pagina2')">↩️ Voltar</a>
+  </div>
+
+  <div class="box" id="pagina6">
+    <h2>🍷 Adega dos Monteiro</h2>
+    <p>Detalhes que chamam atenção:
+    <ul>
+      <li>Duas taças de vinho - uma com resíduos de cianeto</li>
+      <li>Garrafa de Château Lafite 1945 (a mesma da foto no escritório)</li>
+      <li>Um pequeno frasco escondido atrás dos vinhos, contendo pó branco</li>
+      <li>Manchas no chão que brilham sob luz ultravioleta</li>
+    </ul>
+    O diário de vinhos mostra que Eduardo raramente bebia.
+    </p>
+    <button onclick="coletarItem('Frasco suspeito', 'pagina6')">Coletar Frasco</button>
+    <a href="#" onclick="navegar('pagina2')">↩️ Voltar</a>
+  </div>
+
+  <!-- [Restante dos locais com mesmo nível de detalhe] -->
+
+  <!-- Novos locais adicionados -->
+  <div class="box" id="pagina20">
+    <h2>⛪ Capela Familiar</h2>
+    <p>Um segredo perturbador:
+    <ul>
+      <li>O túmulo de Isabella Monteiro (primeira esposa) está violado</li>
+      <li>Documentos escondidos sob a lápide revelam um filho ilegítimo</li>
+      <li>Um relicário contendo uma mecha de cabelo e foto de uma criança</li>
+      <li>Inscrição: "O sangue não mente, mas os nomes podem enganar"</li>
+    </ul>
+    </p>
+    <button onclick="coletarItem('Documentos da lápide', 'pagina20')">Coletar Documentos</button>
+    <a href="#" onclick="navegar('pagina2')">↩️ Voltar</a>
+  </div>
+
+  <!-- Interrogatórios - Aprofundados -->
+  <div class="box" id="pagina4">
+    <h2>👥 Os Suspeitos</h2>
+    <p>Cada um com seus próprios segredos:</p>
+    <div class="menu">
+      <button onclick="interrogar('pagina12','Governanta')">👩 D. Matilde (Governanta) <span
+          id="check-Governanta"></span></button>
+      <button onclick="interrogar('pagina13','Sobrinho')">🧑‍💼 Ricardo (Sobrinho) <span
+          id="check-Sobrinho"></span></button>
+      <button onclick="interrogar('pagina14','Jardineiro')">🌿 Antônio (Jardineiro) <span
+          id="check-Jardineiro"></span></button>
+      <button onclick="interrogar('pagina15','Chef')">👨‍🍳 Pierre (Chef) <span id="check-Chef"></span></button>
+      <button onclick="interrogar('pagina16','Advogada')">👩‍⚖️ Dra. Vanessa (Advogada) <span
+          id="check-Advogada"></span></button>
+      <button onclick="interrogar('pagina17','Esposa')">🕵️‍♀️ Camila (Esposa) <span id="check-Esposa"></span></button>
+      <button onclick="navegar('pagina2')">↩️ Voltar</button>
+    </div>
+  </div>
+
+  <!-- Suspeitos - Diálogos aprofundados -->
+  <div class="box" id="pagina12">
+    <h2>👩 D. Matilde - Governanta por 30 anos</h2>
+    <p>"Eu cuidava do Sr. Eduardo desde criança. Ele mudou depois que descobriu os arquivos no porão... Naquela noite
+      ouvi
+      uma discussão na adega. A Sra. Camila gritava 'Você sabia o tempo todo!'. Depois, silêncio. <em>*Ela segura um
+        rosário*</em>
+      A primeira Sra. Monteiro também morreu misteriosamente...".</p>
+    <p><strong>Você nota:</strong> Ela usa um colar idêntico ao da foto no quarto.</p>
+    <a href="#" onclick="navegar('pagina4')">↩️ Voltar</a>
+  </div>
+
+  <div class="box" id="pagina13">
+    <h2>🧑‍💼 Ricardo - O Sobrinho "Perfeito"</h2>
+    <p>"Tio Eduardo estava me preparando para assumir os negócios, até que... ele descobriu. <em>*Risada nervosa*</em>
+      O Projeto Fênix não era sobre renovação empresarial. Era sobre ele... sobre nós. Aquela noite fui chamado à
+      biblioteca,
+      mas quando cheguei, ele já estava... <strong>Mostra o celular:</strong> A mensagem dizia 'Encontre a verdade no
+      túmulo.'"</p>
+    <a href="#" onclick="navegar('pagina4')">↩️ Voltar</a>
+  </div>
+
+  <div class="box" id="pagina14">
+    <h2>🌿 Jardineiro</h2>
+    <p>"Eu só cuido do jardim, tá? Mas vi pegadas perto do porão. E sim, meu avental tá sujo, mas não fui eu! Esse
+      sangue... eu nem sei como apareceu ali. Juro que não sei de nada além disso."
+    </p><a href="#" onclick="navegar('pagina4')">↩️ Voltar</a>
+  </div>
+
+  <div class="box" id="pagina15">
+    <h2>👨‍🍳 Chef</h2>
+    <p>"Aquela faca na pia? É da cozinha, sim. Tava suja porque usei no jantar. Qualquer um pode ter pegado depois que
+      saí. Isso não tem nada a ver comigo."</p><a href="#" onclick="navegar('pagina4')">↩️ Voltar</a>
+  </div>
+
+  <div class="box" id="pagina16">
+    <h2>👩‍⚖️ Advogada</h2>
+    <p>"Nos últimos dias, o Sr. Eduardo estava estranho. Me pediu pra refazer o testamento, deixando quase tudo pra
+      esposa. Questionei, claro, mas ele estava decidido. Isso... com certeza deixou alguém bem irritado."</p><a
+      href="#" onclick="navegar('pagina4')">↩️ Voltar</a>
+  </div>
+
+  <div class="box" id="pagina17">
+    <h2>🕵️‍♀️ Camila Monteiro - A Segunda Esposa</h2>
+    <p>"Eu amava Eduardo, mas ele vivia obcecado pelo passado. Naquela noite, ele me mostrou documentos... provando que
+      Ricardo era seu filho, não sobrinho. <em>*Lágrimas*</em> Bebemos o vinho como sempre, mas depois... não me lembro.
+      Acordei com a taça quebrada e ele... <strong>Ela abre a bolsa:</strong> Esta chave estava em meu casaco, não sei
+      de onde veio."</p>
+    <a href="#" onclick="navegar('pagina4')">↩️ Voltar</a>
+  </div>
+
+  <!-- Acusação com mais opções -->
+  <div class="box" id="pagina18">
+    <h2>⚖️ A Verdade por Trás do Crime</h2>
+    <p>Ao reunir todas as pistas você acusa o(a):</p>
+    <div class="menu">
+      <button onclick="finalizarJogo('Esposa', 'crime_passional')">🕵️‍♀️ Esposa por Crime Passional</button>
+      <button onclick="finalizarJogo('Sobrinho', 'vinganca')">🧑‍💼 Sobrinho por Vingança</button>
+      <button onclick="finalizarJogo('Governanta', 'segredo_familiar')">👩 Governanta por Segredo Familiar</button>
+      <button onclick="finalizarJogo('Advogada', 'conspiracao')">👩‍⚖️ Advogada por Conspiração</button>
+      <button onclick="finalizarJogo('Chef', 'acidente')">👨‍🍳 Chef por Acidente</button>
+      <button onclick="finalizarJogo('Jardineiro', 'autodefesa')">🌿 Jardineiro por Autodefesa</button>
+      <button onclick="finalizarJogo('Outro', 'suicidio')">💀 Suicídio Arranjado</button>
+    </div>
+  </div>
+
+  <!-- Resultado com múltiplos finais -->
+  <div class="box" id="pagina19">
+    <h2>🏁 O Destino dos Monteiro</h2>
+    <p id="resultado"></p>
+    <div id="consequencias" style="margin-top:20px;">
+      <h3>🔮 Consequências:</h3>
+      <p id="texto-consequencias"></p>
+    </div>
+    <div id="segredo-final" style="display:none; margin-top:15px; padding:10px; background:#f0f0f0;">
+      <p id="texto-segredo"></p>
+    </div>
+    <a href="#" onclick="window.location.reload()" style="margin-top:20px;">🔄 Jogar Novamente</a>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

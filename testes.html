@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jogo de Investigação - Mistério na Mansão</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+  <!-- Inventário -->
+  <div id="inventario">
+    <h3>🗂️ Pistas <span id="badge-pistas">0</span></h3>
+    <ul id="lista-pistas">
+      <li>Nenhuma pista encontrada ainda.</li>
+    </ul>
+  </div>
+
+  <!-- Página inicial -->
+  <div class="box active" id="pagina1">
+    <h1>🕵️ Mistério na Mansão</h1>
+    <p>O Sr. Eduardo foi encontrado morto na biblioteca. Existem 6 suspeitos e muitos mistérios.</p>
+    <div class="menu">
+      <button onclick="navegar('pagina2')">🗺️ Acessar o mapa da mansão</button>
+      <button onclick="navegar('pagina4')">👥 Interrogar os suspeitos</button>
+      <button onclick="navegar('pagina18')">⚖️ Fazer uma acusação</button>
+    </div>
+  </div>
+
+  <!-- Mapa -->
+  <div class="box" id="pagina2">
+    <h2>🗺️ Mapa da Mansão</h2>
+    <p>Escolha um local para investigar:</p>
+    <div class="menu">
+      <button onclick="visitarLocal('pagina3', 'Biblioteca')">📖 Biblioteca <span id="check-Biblioteca"></span></button>
+      <button onclick="visitarLocal('pagina5', 'Escritório')">🏢 Escritório <span id="check-Escritório"></span></button>
+      <button onclick="visitarLocal('pagina6', 'Adega')">🍷 Adega <span id="check-Adega"></span></button>
+      <button onclick="visitarLocal('pagina7', 'Cozinha')">🍽️ Cozinha <span id="check-Cozinha"></span></button>
+      <button onclick="visitarLocal('pagina8', 'Jardim')">🌳 Jardim <span id="check-Jardim"></span></button>
+      <button onclick="visitarLocal('pagina9', 'Quarto')">🛏️ Quarto <span id="check-Quarto"></span></button>
+      <button onclick="visitarLocal('pagina10', 'Garagem')">🚗 Garagem <span id="check-Garagem"></span></button>
+      <button onclick="visitarLocal('pagina11', 'Porão')">🚪 Porão <span id="check-Porão"></span></button>
+      <button onclick="navegar('pagina1')">↩️ Voltar</button>
+    </div>
+  </div>
+
+  <!-- Locais detalhados -->
+  <div class="box" id="pagina3">
+    <h2>📖 Biblioteca</h2>
+    <p>Uma carta rasgada espalhada pelo chão, com algumas palavras legíveis: “não confie”, “amanhã à meia-noite”. Um
+      livro antigo falta da prateleira, deixando um vazio suspeito.</p>
+    <a href="#" onclick="navegar('pagina2')">↩️ Voltar</a>
+  </div>
+
+  <div class="box" id="pagina5">
+    <h2>🏢 Escritório</h2>
+    <p>O cofre está arrombado, suas portas abertas mostram gavetas vazias e documentos faltando. Um relatório incompleto
+      está sobre a mesa, com anotações feitas às pressas e um carimbo vermelho: “Confidencial”.</p>
+    <a href="#" onclick="navegar('pagina2')">↩️ Voltar</a>
+  </div>
+
+  <div class="box" id="pagina6">
+    <h2>🍷 Adega</h2>
+    <p>Taças de vinho usadas estão sobre a mesa, uma delas tem uma mancha escura no copo. O cheiro do vinho misturado a
+      algo metálico paira no ar, e uma garrafa quase vazia está escondida atrás das outras.</p>
+    <a href="#" onclick="navegar('pagina2')">↩️ Voltar</a>
+  </div>
+
+  <div class="box" id="pagina7">
+    <h2>🍽️ Cozinha</h2>
+    <p>Uma faca suja está na pia, seu cabo manchado. Próximo à janela, há uma toalha de mão molhada caída no chão, e um
+      bilhete amassado com a palavra “perigo” rabiscada com pressa.</p>
+    <a href="#" onclick="navegar('pagina2')">↩️ Voltar</a>
+  </div>
+
+  <div class="box" id="pagina8">
+    <h2>🌳 Jardim</h2>
+    <p>Pegadas frescas levam do jardim até a porta do porão. Entre as flores, um pedaço de tecido rasgado está preso em
+      um galho, como se alguém tivesse se agarrado com força.</p>
+    <a href="#" onclick="navegar('pagina2')">↩️ Voltar</a>
+  </div>
+
+  <div class="box" id="pagina9">
+    <h2>🛏️ Quarto</h2>
+    <p>A gaveta secreta está aberta, revelando fotos antigas e um diário com páginas arrancadas. O ar está pesado, e um
+      cheiro familiar de perfume barato ainda está no ambiente.</p>
+    <a href="#" onclick="navegar('pagina2')">↩️ Voltar</a>
+  </div>
+
+  <div class="box" id="pagina10">
+    <h2>🚗 Garagem</h2>
+    <p>O porta-malas do carro está aberto, revelando um pano sujo manchado com algo vermelho escuro. Há marcas de pneus
+      na poeira e um cheiro forte de combustível misturado com ferro.</p>
+    <a href="#" onclick="navegar('pagina2')">↩️ Voltar</a>
+  </div>
+
+  <div class="box" id="pagina11">
+    <h2>🚪 Porão</h2>
+    <p>O baú trancado tem marcas recentes de arrombamento. No chão, manchas que parecem sangue seco levam até uma parede
+      com riscos feitos com giz, formando símbolos indecifráveis.</p>
+    <a href="#" onclick="navegar('pagina2')">↩️ Voltar</a>
+  </div>
+
+
+  <!-- Interrogatórios -->
+  <div class="box" id="pagina4">
+    <h2>👥 Interrogatório</h2>
+    <div class="menu">
+      <button onclick="interrogar('pagina12','Governanta')">👩 Governanta <span id="check-Governanta"></span></button>
+      <button onclick="interrogar('pagina13','Jardineiro')">🌿 Jardineiro <span id="check-Jardineiro"></span></button>
+      <button onclick="interrogar('pagina14','Sobrinho')">🧑‍💼 Sobrinho <span id="check-Sobrinho"></span></button>
+      <button onclick="interrogar('pagina15','Chef')">👨‍🍳 Chef <span id="check-Chef"></span></button>
+      <button onclick="interrogar('pagina16','Advogada')">👩‍⚖️ Advogada <span id="check-Advogada"></span></button>
+      <button onclick="interrogar('pagina17','Esposa')">🕵️‍♀️ Esposa <span id="check-Esposa"></span></button>
+      <button onclick="navegar('pagina2')">↩️ Voltar</button>
+    </div>
+  </div>
+
+  <!-- Suspeitos -->
+
+  <div class="box" id="pagina15">
+    <h2>👨‍🍳 Chef</h2>
+    <p>"Aquela faca na pia? É da cozinha, sim. Tava suja porque usei no jantar. Qualquer um pode ter pegado depois que
+      saí. Isso não tem nada a ver comigo."</p><a href="#" onclick="navegar('pagina4')">↩️ Voltar</a>
+  </div>
+  <div class="box" id="pagina16">
+    <h2>👩‍⚖️ Advogada</h2>
+    <p>"Nos últimos dias, o Sr. Eduardo estava estranho. Me pediu pra refazer o testamento, deixando quase tudo pra
+      esposa. Questionei, claro, mas ele estava decidido. Isso... com certeza deixou alguém bem irritado."</p><a
+      href="#" onclick="navegar('pagina4')">↩️ Voltar</a>
+  </div>
+  <div class="box" id="pagina17">
+    <h2>🕵️‍♀️ Esposa</h2>
+    <p>"Eu estava na adega, tomando vinho. Sim, havia duas taças, mas... não lembro quem estava comigo. Foi confuso. Eu
+      não matei ele. Eu juro que não fiz isso."</p><a href="#" onclick="navegar('pagina4')">↩️ Voltar</a>
+  </div>
+
+  <!-- Acusação -->
+  <div class="box" id="pagina18">
+    <h2>⚖️ Quem é o culpado?</h2>
+    <div class="menu">
+      <button onclick="finalizarJogo('Governanta')">👩 Governanta</button>
+      <button onclick="finalizarJogo('Jardineiro')">🌿 Jardineiro</button>
+      <button onclick="finalizarJogo('Sobrinho')">🧑‍💼 Sobrinho</button>
+      <button onclick="finalizarJogo('Chef')">👨‍🍳 Chef</button>
+      <button onclick="finalizarJogo('Advogada')">👩‍⚖️ Advogada</button>
+      <button onclick="finalizarJogo('Esposa')">🕵️‍♀️ Esposa</button>
+    </div>
+  </div>
+
+  <!-- Resultado -->
+  <div class="box" id="pagina19">
+    <h2>🏁 Resultado</h2>
+    <p id="resultado"></p>
+    <a href="#" onclick="window.location.reload()">🔄 Jogar Novamente</a>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

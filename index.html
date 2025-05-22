@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Seleção de Caso - Jogo Investigação</title>
+  <style>
+    body {
+      background: #121212;
+      color: #eee;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    h1 {
+      margin-bottom: 2rem;
+    }
+
+    .cases {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    button {
+      background: #282c34;
+      color: #61dafb;
+      border: 2px solid #61dafb;
+      border-radius: 8px;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #61dafb;
+      color: #282c34;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Escolha o Caso para Investigar</h1>
+  <div class="cases">
+    <button onclick="selecionarCaso('/casos/MM/index.html')">Caso 1: O Mistério da Mansão</button>
+    <button onclick="selecionarCaso('/casos/SB/index.html')">Caso 2: O Segredo da Biblioteca</button>
+    <button onclick="selecionarCaso('caso3.html')">Caso 3: O Assassinato na Adega</button>
+  </div>
+
+  <script>
+    function selecionarCaso(pagina) {
+      window.location.href = pagina;
+    }
+  </script>
+</body>
+
+</html>

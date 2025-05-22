@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Caso 2: O Segredo da Biblioteca</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+
+  <!-- Inventário -->
+  <div id="inventario">
+    <h3>🗂️ Pistas <span id="badge-pistas">0</span></h3>
+    <ul id="lista-pistas">
+      <li>Nenhuma pista encontrada ainda.</li>
+    </ul>
+    <div class="itens">
+      <h3>🔍 Itens Coletados <span id="badge-itens">0</span></h3>
+      <ul id="lista-itens"></ul>
+    </div>
+  </div>
+  <!-- <div class="relatorio">
+    <h3>📋 Relatório da Cena</h3>
+    <p>Vítima: <strong>Eduardo Monteiro (52 anos)</strong></p>
+    <p>Causa da Morte: <strong>Envenenamento por cianeto</strong></p>
+    <p>Hora Estimada: <strong>Entre 21h e 23h</strong></p>
+    <p>Detalhes:
+      <strong>Vítima encontrada na biblioteca, taça de vinho quebrada ao lado,
+        odor de amêndoas amargas</strong>
+    </p>
+  </div> -->
+
+  <!-- Página inicial -->
+  <div class="box active" id="pagina1">
+    <a href="/" onclick="window.location.replace('/')">↩️ Voltar</a>
+    <h1>🕵️ Caso 2: O Segredo da Biblioteca</h1>
+    <p>A Biblioteca Municipal de Ravenswood, construída em 1897, esconde um mistério centenário. Nos últimos meses,
+      relatos de atividades noturnas, luzes estranhas e desaparecimento de livros raros levaram você a investigar
+      uma possível sociedade secreta operando nas sombras. Um estudante desaparecido deixou um diário com anotações
+      perturbadoras antes de sumir...</p><br>
+    <div class="menu">
+      <span>Você pode:</span>
+      <button onclick="navegar('pagina2')">🗺️ Acessar o mapa da biblioteca</button>
+      <button onclick="navegar('pagina6')">👥 Interrogar os suspeitos</button>
+      <button onclick="navegar('pagina10')">⚖️ Fazer uma acusação</button>
+    </div>
+  </div>
+
+  <!-- Mapa -->
+  <div class="box" id="pagina2">
+    <h2>🗺️ Mapa da Biblioteca</h2>
+    <p>Escolha um local para investigar:</p>
+    <div class="menu">
+      <button onclick="visitarLocal('pagina3', 'Estante Principal')">📚 Estante Principal <span
+          id="check-Estante Principal"></span></button>
+      <button onclick="visitarLocal('pagina4', 'Sala de Leitura')">🕯️ Sala de Leitura <span
+          id="check-Sala de Leitura"></span></button>
+      <button onclick="visitarLocal('pagina5', 'Escritório do Bibliotecário')">📜 Escritório do Bibliotecário <span
+          id="check-Escritório do Bibliotecário"></span></button>
+      <button onclick="visitarLocal('pagina7', 'Entrada Secreta')">🚪 Entrada Secreta <span
+          id="check-Entrada Secreta"></span></button>
+      <button onclick="visitarLocal('pagina8', 'Arquivos Antigos')">🗃️ Arquivos Antigos <span
+          id="check-Arquivos Antigos"></span></button>
+      <button onclick="visitarLocal('pagina9', 'Sala de Reuniões')">👥 Sala de Reuniões <span
+          id="check-Sala de Reuniões"></span></button>
+      <button onclick="navegar('pagina1')">↩️ Voltar</button>
+    </div>
+  </div>
+
+  <!-- Locais detalhados - Aprofundados -->
+  <div class="box" id="pagina3">
+    <h2>📚 Estante Principal</h2>
+    <p>Entre os volumes de história local, um exemplar de "Crônicas de Ravenswood" (1895) se destaca pela fita vermelha
+      desgastada. Ao removê-lo, um mecanismo silencioso revela uma gaveta oculta contendo:
+    <ul>
+      <li>Um pergaminho com símbolos alquímicos</li>
+      <li>Uma lista de nomes codificados</li>
+      <li>Um desenho da biblioteca com passagens secretas marcadas</li>
+    </ul>
+    A última página do livro contém uma anotação: "O quinto solstício se aproxima, o artefato deve ser ativado."
+    </p>
+    <a href="#" onclick="navegar('pagina2')">↩️ Voltar</a>
+  </div>
+
+  <div class="box" id="pagina4">
+    <h2>🕯️ Sala de Leitura</h2>
+    <p>O ambiente exala cera de abelha queimada e um leve odor metálico. Sobre a mesa central:
+    <ul>
+      <li>Anotações sobre "Rituais Lunares do Século XIX"</li>
+      <li>Um mapa astral marcado para o próximo solstício</li>
+      <li>Uma agenda com encontros marcados como "Círculo"</li>
+    </ul>
+    Nas margens, rabiscos nervosos: "Eles não entendem o poder que despertarão. M. está ficando impaciente."
+    </p>
+    <a href="#" onclick="navegar('pagina2')">↩️ Voltar</a>
+  </div>
+
+  <div class="box" id="pagina5">
+    <h2>📜 Escritório do Bibliotecário</h2>
+    <p>O caos organizado revela:
+    <ul>
+      <li>Faturas falsas para reformas nunca realizadas</li>
+      <li>Correspondência codificada com o símbolo de um olho triplo</li>
+      <li>Um diário com páginas recentemente arrancadas</li>
+    </ul>
+    O telefone fora do gancho emite um zumbido baixo. O bilhete sob o teclado mostra: "23h, portal leste. Traga o
+    medallion."
+    </p>
+    <a href="#" onclick="navegar('pagina2')">↩️ Voltar</a>
+  </div>
+
+  <div class="box" id="pagina7">
+    <h2>🚪 Entrada Secreta</h2>
+    <p>A passagem secreta leva a uma escada espiral descendente. No chão:
+    <ul>
+      <li>Um pingente de prata com o mesmo símbolo do olho triplo</li>
+      <li>Marcas de arrasto recentes no pó secular</li>
+      <li>Manchas escuras que brilham sob luz ultravioleta</li>
+    </ul>
+    Uma inscrição na parede em latim: "Scientia potentia est, sed veritas liberabit vos" (O conhecimento é poder, mas a
+    verdade vos libertará).
+    </p>
+    <a href="#" onclick="navegar('pagina2')">↩️ Voltar</a>
+  </div>
+
+  <div class="box" id="pagina8">
+    <h2>🗃️ Arquivos Antigos</h2>
+    <p>Os arquivos faltantes correspondem a:
+    <ul>
+      <li>Projetos originais da biblioteca (1895-1897)</li>
+      <li>Registros de fundadores da cidade</li>
+      <li>Documentos sobre "incidentes inexplicáveis"</li>
+    </ul>
+    O contrato restante menciona "serviços prestados à Ordem" com uma cláusula sobre "manutenção do portal". As
+    assinaturas parecem ter sido queimadas propositalmente.
+    </p>
+    <a href="#" onclick="navegar('pagina2')">↩️ Voltar</a>
+  </div>
+
+  <div class="box" id="pagina9">
+    <h2>👥 Sala de Reuniões</h2>
+    <p>Evidências de um encontro recente:
+    <ul>
+      <li>7 cálices com resíduos de líquido avermelhado</li>
+      <li>Cinzas de pergaminho no centro da mesa</li>
+      <li>O caderno aberto na página: "Preparativos finais para a Convergência"</li>
+    </ul>
+    Uma nota destacada: "O estudante viu demais. Lidem com isso antes do ritual."
+    </p>
+    <a href="#" onclick="navegar('pagina2')">↩️ Voltar</a>
+  </div>
+
+  <!-- Interrogatórios - Aprofundados -->
+  <div class="box" id="pagina6">
+    <h2>👥 Interrogatório</h2>
+    <div class="menu">
+      <button onclick="interrogar('pagina11','Bibliotecário')">👨‍💼 Bibliotecário <span
+          id="check-Bibliotecário"></span></button>
+      <button onclick="interrogar('pagina12','Assistente')">👩‍💻 Assistente <span
+          id="check-Assistente"></span></button>
+      <button onclick="interrogar('pagina13','Zelador')">🧹 Zelador <span id="check-Zelador"></span></button>
+      <button onclick="interrogar('pagina14','Professor')">👨‍🏫 Professor <span id="check-Professor"></span></button>
+      <button onclick="interrogar('pagina15','Estudante')">🧑‍🎓 Estudante <span id="check-Estudante"></span></button>
+      <button onclick="interrogar('pagina16','Visitante Misterioso')">🧥 Visitante Misterioso <span
+          id="check-Visitante Misterioso"></span></button>
+      <button onclick="navegar('pagina2')">↩️ Voltar</button>
+    </div>
+  </div>
+
+  <!-- Suspeitos - Diálogos aprofundados -->
+  <div class="box" id="pagina11">
+    <h2>👨‍💼 Bibliotecário - Mortimer Blackwood</h2>
+    <p>"Minha família cuida desta biblioteca há três gerações. Essas acusações são absurdas! Sim, temos reuniões
+      noturnas -
+      são clubes de estudo. Os livros faltando? Empréstimos não registrados. Aquele estudante? Desistiu da universidade.
+      <em>*Suas mãos tremem ao ajustar os óculos*</em> Eu... eu apenas preservo o conhecimento, nada mais."
+    </p>
+    <p><strong>Você nota:</strong> Uma tatuagem discreta no pulso esquerdo - o olho triplo dos arquivos.</p>
+    <a href="#" onclick="navegar('pagina6')">↩️ Voltar</a>
+  </div>
+
+  <div class="box" id="pagina12">
+    <h2>👩‍💻 Assistente - Clara Winslow</h2>
+    <p>"Trabalho aqui há seis meses. No início era normal, mas depois... coisas estranhas. O Sr. Blackwood muda à noite.
+      Uma vez o vi recitar algo em uma língua estranha na sala de arquivos. E os visitantes... sempre os mesmos sete,
+      vestidos de preto. <em>*Ela baixa a voz*</em> Encontrei este bilhete na copiadora..."
+      <strong>Mostra um papel amassado:</strong> "O sangue do iniciado é necessário para a abertura."
+    </p>
+    <a href="#" onclick="navegar('pagina6')">↩️ Voltar</a>
+  </div>
+
+  <div class="box" id="pagina13">
+    <h2>🧹 Zelador - Joaquim Silva</h2>
+    <p>"Eu limpo o que me mandam limpar. Mas sim, vi coisas... luzes azuis que não vinham de lâmpadas, vozes sussurrando
+      em línguas mortas. Uma noite, varri cinzas que formavam símbolos no chão. Quando questionei, me deram dinheiro
+      para
+      esquecer. <em>*Ele abre a camisa*</em> Dois dias depois, apareceu isso." <strong>Revela uma marca de queimadura
+        estranha no peito.</strong> "Agora eu só limpo de dia."</p>
+    <a href="#" onclick="navegar('pagina6')">↩️ Voltar</a>
+  </div>
+
+  <div class="box" id="pagina14">
+    <h2>👨‍🏫 Professor - Dr. Elias Graves</h2>
+    <p>"Minha pesquisa é sobre sociedades secretas do século XIX, pura academia. O grupo aqui? Um círculo de estudos,
+      apenas. <em>*Ele ri nervosamente*</em> O que há com esses interrogatórios? Ah, o estudante desaparecido...
+      ele estava obcecado por teorias da conspiração. <strong>Você nota:</strong> Sua pasta contém esboços idênticos
+      aos símbolos do pergaminho secreto.</p>
+    <a href="#" onclick="navegar('pagina6')">↩️ Voltar</a>
+  </div>
+
+  <div class="box" id="pagina15">
+    <h2>🧑‍🎓 Estudante - Lucas Ferreira</h2>
+    <p>"Eu vi o bibliotecário e aquele homem de casaco preto abrindo a estante secreta! Tinham um... um livro feito de
+      pele humana, juro! Dois dias depois, recebi ameaças. <em>*Ele olha por sobre os ombros*</em> Encontrei isso no
+      banheiro: <strong>Mostra um celular com foto borrada de um ritual.</strong> "Eles estavam vestidos com capuzes,
+      cantando em volta de algo brilhante..."</p>
+    <a href="#" onclick="navegar('pagina6')">↩️ Voltar</a>
+  </div>
+
+  <div class="box" id="pagina16">
+    <h2>🧥 Visitante Misterioso - "Sr. Smith"</h2>
+    <p>"Sou apenas um benfeitor da biblioteca. Minhas visitas? Interesses acadêmicos. <em>*Seus olhos escuros não
+        piscam*</em>
+      Você deveria abandonar essa investigação, detetive. Alguns segredos... são melhores guardados.
+      <strong>Ele deixa cair acidentalmente um cartão:</strong> "Ordo Lux Veritatis" com um número de telefone.
+    </p>
+    <a href="#" onclick="navegar('pagina6')">↩️ Voltar</a>
+  </div>
+
+  <!-- Acusação -->
+  <div class="box" id="pagina10">
+    <h2>⚖️ Quem está por trás do segredo?</h2>
+    <p>Ao reunir todas as pistas, você percebe que:</p>
+    <ul>
+      <li>O ritual do solstício está marcado para amanhã à meia-noite</li>
+      <li>O artefato mencionado parece ser uma chave para algo antigo</li>
+      <li>O estudante desaparecido pode ser a vítima sacrificial</li>
+    </ul>
+    <div class="menu">
+      <button onclick="finalizarJogo('Bibliotecário')">👨‍💼 Bibliotecário</button>
+      <button onclick="finalizarJogo('Professor')">👨‍🏫 Professor</button>
+      <button onclick="finalizarJogo('Visitante Misterioso')">🧥 Visitante</button>
+      <button onclick="finalizarJogo('Assistente')">👩‍💻 Assistente</button>
+      <button onclick="finalizarJogo('Zelador')">🧹 Zelador</button>
+      <button onclick="finalizarJogo('Estudante')">🧑‍🎓 Estudante</button>
+    </div>
+  </div>
+
+  <!-- Resultado com múltiplos finais -->
+  <div class="box" id="pagina17">
+    <h2>🏁 Resultado</h2>
+    <p id="resultado"></p>
+    <div id="consequencias" style="margin-top:20px; display:none;">
+      <h3>Consequências:</h3>
+      <p id="texto-consequencias"></p>
+    </div>
+    <a href="#" onclick="window.location.reload()" style="margin-top:20px;">🔄 Jogar Novamente</a>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
