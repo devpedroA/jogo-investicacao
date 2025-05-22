@@ -25,7 +25,14 @@ h2,
 h3 {
   color: #f9f9f9;
 }
-
+button{
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+  background-color: #0ff;
+  color: #000;
+}
 a {
   display: block;
   margin: 10px 0;

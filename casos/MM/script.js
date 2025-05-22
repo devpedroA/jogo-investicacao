@@ -8,8 +8,6 @@ function navegar(pagina) {
     document.getElementById(pagina).classList.add('active');
 }
 
-
-
 function adicionarPista(pista) {
     if (!pistas.includes(pista)) {
         pistas.push(pista);

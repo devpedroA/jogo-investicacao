@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>O Enigma do Laboratório Secreto</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+  <!-- Inventário -->
+  <div id="inventario">
+    <h3>🗂️ Pistas <span id="badge-pistas">0</span></h3>
+    <ul id="lista-pistas">
+      <li>Nenhuma pista encontrada ainda.</li>
+    </ul>
+    <div class="itens">
+      <h3>🔍 Itens Coletados <span id="badge-itens">0</span></h3>
+      <ul id="lista-itens"></ul>
+    </div>
+  </div>
+  <div class="relatorio">
+    <h3>📋 Relatório da Cena</h3>
+    <p>Desaparecido: <strong>Dr. Arthur Mendes (45 anos)</strong></p>
+    <p>Última Localização: <strong>Laboratório Subterrâneo da Neurotech</strong></p>
+    <p>Último Acesso: <strong>Entre 21h e 23h</strong></p>
+    <p>Detalhes:
+      <strong>Sistema de segurança desativado, equipamentos danificados,
+        vestígios de substância desconhecida</strong>
+    </p>
+  </div>
+
+  <!-- Página inicial -->
+  <div class="box active" id="pagina1">
+    <a href="/" onclick="window.location.replace('/')">↩️ Voltar</a>
+    <h1>🔬 O Enigma do Laboratório Secreto</h1>
+    <p>Você é um investigador contratado para desvendar o desaparecimento do Dr. Arthur Mendes no laboratório
+      subterrâneo da Neurotech. O que parecia um simples caso de desaparecimento revela experimentos proibidos
+      e segredos corporativos que alguém está disposto a matar para proteger.</p><br>
+    <div class="menu">
+      <span>Você pode:</span>
+      <button onclick="navegar('pagina2')">🗺️ Explorar o Laboratório</button>
+      <button onclick="navegar('pagina8')">👥 Interrogar os Suspeitos</button>
+      <button onclick="navegar('pagina12')">⚖️ Fazer uma Acusação</button>
+    </div>
+  </div>
+
+  <!-- Mapa do Laboratório -->
+  <div class="box" id="pagina2">
+    <h2>🗺️ Laboratório Neurotech</h2>
+    <p>Escolha um local para investigar:</p>
+    <div class="menu">
+      <button onclick="visitarLocal('pagina3', 'Sala de Servidores')">💻 Sala de Servidores <span
+          id="check-Sala de Servidores"></span></button>
+      <button onclick="visitarLocal('pagina4', 'Laboratório Principal')">🧪 Laboratório Principal <span
+          id="check-Laboratório Principal"></span></button>
+      <button onclick="visitarLocal('pagina5', 'Sala de Arquivos')">📂 Sala de Arquivos <span
+          id="check-Sala de Arquivos"></span></button>
+      <button onclick="visitarLocal('pagina6', 'Câmara Criogênica')">❄️ Câmara Criogênica <span
+          id="check-Câmara Criogênica"></span></button>
+      <button onclick="visitarLocal('pagina7', 'Área de Testes')">⚠️ Área de Testes <span
+          id="check-Área de Testes"></span></button>
+      <button onclick="visitarLocal('pagina20', 'Sala Secreta')">🔐 Sala Secreta <span
+          id="check-Sala Secreta"></span></button>
+      <button onclick="navegar('pagina1')">↩️ Voltar</button>
+    </div>
+  </div>
+
+  <!-- Locais detalhados -->
+  <div class="box" id="pagina3">
+    <h2>💻 Sala de Servidores</h2>
+    <p>A sala revela atividades suspeitas:
+    <ul>
+      <li>Sistema de segurança foi hackeado às 21:47</li>
+      <li>Um chip de acesso quebrado no chão com digitais desconhecidas</li>
+      <li>Logs mostram acesso não autorizado aos arquivos do Projeto Ômega</li>
+      <li>Mensagem criptografada: "Amostra 047 em perigo"</li>
+    </ul>
+    Os servidores principais foram fisicamente danificados.
+    </p>
+    <button onclick="coletarItem('Chip de Acesso Quebrado', 'pagina3')">Coletar Chip</button>
+    <a href="#" onclick="navegar('pagina2')">↩️ Voltar</a>
+  </div>
+
+  <div class="box" id="pagina4">
+    <h2>🧪 Laboratório Principal</h2>
+    <p>Cena de intensa atividade recente:
+    <ul>
+      <li>Equipamentos de análise neural danificados</li>
+      <li>Ampola misteriosa com líquido fluorescente</li>
+      <li>Diário de laboratório com página arrancada</li>
+      <li>Anotações sobre "Transferência de Consciência - Fase 3"</li>
+    </ul>
+    Manchas estranhas no chão brilham sob luz UV.
+    </p>
+    <button onclick="coletarItem('Ampola Misteriosa', 'pagina4')">Coletar Ampola</button>
+    <a href="#" onclick="navegar('pagina2')">↩️ Voltar</a>
+  </div>
+
+  <div class="box" id="pagina5">
+    <h2>📂 Sala de Arquivos</h2>
+    <p>Documentos reveladores:
+    <ul>
+      <li>Anotações rasgadas sobre testes com humanos</li>
+      <li>Relatório do Comitê de Ética rejeitando o Projeto Ômega</li>
+      <li>Foto do Dr. Mendes com alguém idêntico a ele marcada como "Controle 047"</li>
+      <li>Mapa do laboratório mostrando uma área não oficial</li>
+    </ul>
+    </p>
+    <button onclick="coletarItem('Anotações Rasgadas', 'pagina5')">Coletar Anotações</button>
+    <a href="#" onclick="navegar('pagina2')">↩️ Voltar</a>
+  </div>
+
+  <div class="box" id="pagina6">
+    <h2>❄️ Câmara Criogênica</h2>
+    <p>Descobertas perturbadoras:
+    <ul>
+      <li>Unidade 047 está vazia, mas mostra atividade recente</li>
+      <li>Relatório de testes com data do incidente</li>
+      <li>Vestígios de tecido cerebral na câmara</li>
+      <li>Mensagem riscada: "Ele não é quem diz ser"</li>
+    </ul>
+    Temperatura foi elevada propositalmente.
+    </p>
+    <button onclick="coletarItem('Relatório de Testes', 'pagina6')">Coletar Relatório</button>
+    <a href="#" onclick="navegar('pagina2')">↩️ Voltar</a>
+  </div>
+
+  <div class="box" id="pagina7">
+    <h2>⚠️ Área de Testes</h2>
+    <p>Cena de destruição:
+    <ul>
+      <li>Vidros quebrados de cabines de teste</li>
+      <li>Equipamento de monitoramento neural destruído</li>
+      <li>Marcas de arranhões nas paredes</li>
+      <li>Mensagem na parede: "Eles me copiaram"</li>
+    </ul>
+    Sistema de contenção foi ativado às 22:13.
+    </p>
+    <a href="#" onclick="navegar('pagina2')">↩️ Voltar</a>
+  </div>
+
+  <div class="box" id="pagina20">
+    <h2>🔐 Sala Secreta</h2>
+    <p>O segredo final:
+    <ul>
+      <li>Equipamento de transferência neural experimental</li>
+      <li>Gravação de vídeo mostrando dois Dr. Mendes</li>
+      <li>Notas sobre "clonagem de consciência"</li>
+      <li>Mensagem final: "Qual de nós é o original?"</li>
+    </ul>
+    </p>
+    <button onclick="coletarItem('Gravação de Vídeo', 'pagina20')">Coletar Gravação</button>
+    <a href="#" onclick="navegar('pagina2')">↩️ Voltar</a>
+  </div>
+
+  <!-- Interrogatórios -->
+  <div class="box" id="pagina8">
+    <h2>👥 Os Suspeitos</h2>
+    <p>Cada um com seus próprios motivos:</p>
+    <div class="menu">
+      <button onclick="interrogar('pagina9','Diretor da Neurotech')">👔 Diretor da Neurotech <span
+          id="check-Diretor da Neurotech"></span></button>
+      <button onclick="interrogar('pagina10','Engenheira-Chefe')">👩‍🔬 Engenheira-Chefe <span
+          id="check-Engenheira-Chefe"></span></button>
+      <button onclick="interrogar('pagina11','Segurança do Laboratório')">🛡️ Segurança do Laboratório <span
+          id="check-Segurança do Laboratório"></span></button>
+      <button onclick="interrogar('pagina21','Assistente de Pesquisa')">🧑‍💻 Assistente de Pesquisa <span
+          id="check-Assistente de Pesquisa"></span></button>
+      <button onclick="navegar('pagina1')">↩️ Voltar</button>
+    </div>
+  </div>
+
+  <!-- Diálogos dos Suspeitos -->
+  <div class="box" id="pagina9">
+    <h2>👔 Diretor da Neurotech</h2>
+    <p>"O Dr. Mendes estava obcecado com o Projeto Ômega. Quando o comitê de ética o rejeitou, ele continuou em segredo.
+      Naquela noite recebi um alerta do sistema... Quando cheguei, o laboratório estava assim. <em>*Ele suava
+        nervosamente*</em> Aquele não era mais o Arthur que conhecia... havia algo errado em seus olhos."</p>
+    <p><strong>Você nota:</strong> Ele tem um acesso nível 10, o único que poderia desativar o sistema de segurança.</p>
+    <a href="#" onclick="navegar('pagina8')">↩️ Voltar</a>
+  </div>
+
+  <div class="box" id="pagina10">
+    <h2>👩‍🔬 Engenheira-Chefe</h2>
+    <p>"Eu projetei o equipamento neural, mas não para isso... Arthur descobriu que estávamos usando seus padrões
+      cerebrais para o projeto. Naquela noite ele me ligou, dizendo 'Eles me copiaram, Laura. E agora querem me
+      substituir.' Depois... só o caos."</p>
+    <a href="#" onclick="navegar('pagina8')">↩️ Voltar</a>
+  </div>
+
+  <div class="box" id="pagina11">
+    <h2>🛡️ Segurança do Laboratório</h2>
+    <p>"Vi dois Dr. Mendes saindo do laboratório naquela noite. Um parecia ferido, o outro... diferente. Tentei
+      impedi-los, mas recebi ordens superiores para deixá-los passar. <em>*Mostra seu comunicador*</em> A mensagem veio
+      do terminal do diretor."</p>
+    <a href="#" onclick="navegar('pagina8')">↩️ Voltar</a>
+  </div>
+
+  <div class="box" id="pagina21">
+    <h2>🧑‍💻 Assistente de Pesquisa</h2>
+    <p>"Eu só seguia ordens... transferimos a consciência do Dr. Mendes para um clone neural semanas atrás. Mas algo deu
+      errado. O clone desenvolveu sua própria consciência. Naquela noite... eles se encontraram. <em>*Chorando*</em> Eu
+      não sabia que iria terminar assim."</p>
+    <a href="#" onclick="navegar('pagina8')">↩️ Voltar</a>
+  </div>
+
+  <!-- Acusação -->
+  <div class="box" id="pagina12">
+    <h2>⚖️ A Verdade por Trás do Desaparecimento</h2>
+    <p>Ao reunir todas as pistas você acusa:</p>
+    <div class="menu">
+      <button onclick="finalizarJogo('Diretor da Neurotech', 'encobrimento')">👔 Diretor por Encobrimento</button>
+      <button onclick="finalizarJogo('Engenheira-Chefe', 'experimento_ilegal')">👩‍🔬 Engenheira por Experimento
+        Ilegal</button>
+      <button onclick="finalizarJogo('Segurança', 'cumplicidade')">🛡️ Segurança por Cumplicidade</button>
+      <button onclick="finalizarJogo('Assistente', 'negligencia')">🧑‍💻 Assistente por Negligência</button>
+      <button onclick="finalizarJogo('Dr. Mendes', 'auto_fuga')">👨‍🔬 Dr. Mendes por Auto-Fuga</button>
+      <button onclick="finalizarJogo('Clone', 'substituicao')">👤 Clone por Tentativa de Substituição</button>
+      <button onclick="finalizarJogo('Outro', 'acidente')">⚠️ Acidente Experimental</button>
+    </div>
+  </div>
+
+  <!-- Resultado -->
+  <div class="box" id="pagina19">
+    <h2>🏁 O Destino do Laboratório</h2>
+    <p id="resultado"></p>
+    <div id="consequencias" style="margin-top:20px;">
+      <h3>🔮 Consequências:</h3>
+      <p id="texto-consequencias"></p>
+    </div>
+    <div id="segredo-final" style="display:none; margin-top:15px; padding:10px; ">
+      <p id="texto-segredo"></p>
+    </div>
+    <a href="#" onclick="window.location.reload()" style="margin-top:20px;">🔄 Jogar Novamente</a>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
